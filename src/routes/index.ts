@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { testController } from "../controllers/test.controller";
+import categoryRoutes from "./category";
+import skillRoutes from "./skill";
 
 const router = Router();
 
-router.get("/test", testController);
-    
+router.use("/categories", categoryRoutes);
+router.use("/skills", skillRoutes);
+
 export default router;
