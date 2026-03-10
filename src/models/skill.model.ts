@@ -18,7 +18,7 @@ const SkillSchema = new mongoose.Schema<ISkill>({
     },
     icon: {
         type: String,
-        required: false
+        default: null
     }
 })
 
