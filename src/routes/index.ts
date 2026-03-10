@@ -3,6 +3,7 @@ import categoryRoutes from "./category";
 import skillRoutes from "./skill";
 import educationRoutes from "./education";
 import experienceRoutes from "./experience";
+import projectRoutes from "./project"
 
 const router = Router();
 
@@ -10,5 +11,6 @@ router.use("/categories", categoryRoutes);
 router.use("/skills", skillRoutes);
 router.use("/educations", educationRoutes);
 router.use("/experiences", experienceRoutes);
+router.use("/projects", projectRoutes);
 
 export default router;
