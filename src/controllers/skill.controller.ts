@@ -56,7 +56,7 @@ export const SkillController = {
             if (!skill) {
                 return res.status(404).json({ message: "Skill not found" })
             }
-            successResponse(res, skill, "Skill deleted successfully", 200)
+            successResponse(res, null, "Skill deleted successfully", 200)
         } catch (error) {
             next(error)
         }

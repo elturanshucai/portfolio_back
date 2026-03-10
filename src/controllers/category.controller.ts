@@ -48,7 +48,7 @@ export const CategoryController = {
             if (!category) {
                 return res.status(404).json({ message: "Category not found" })
             }
-            successResponse(res, category, "Category deleted successfully", 200)
+            successResponse(res, null, "Category deleted successfully", 200)
         } catch (error) {
             next(error)
         }
