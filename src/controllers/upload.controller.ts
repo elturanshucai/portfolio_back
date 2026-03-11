@@ -5,7 +5,6 @@ import streamifier from "streamifier";
 export const uploadImage = async (req: Request, res: Response) => {
   try {
     const file = req.file;
-
     if (!file) {
       return res.status(400).json({ message: "Image not found" });
     }
@@ -19,16 +18,14 @@ export const uploadImage = async (req: Request, res: Response) => {
             else reject(error);
           }
         );
-
         streamifier.createReadStream(file.buffer).pipe(stream);
       });
 
     const result: any = await streamUpload();
-
+    
     res.json({
       url: result.secure_url
     });
-
   } catch (error) {
     console.log(error)
     res.status(500).json(error);
