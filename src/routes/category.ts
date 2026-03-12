@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { CategoryController } from "../controllers/category.controller";
+import { loginMiddleware } from "../middleware/login.middleware";
 
 const router = Router();
 
-router.post("/", CategoryController.create);
 router.get("/", CategoryController.getAll);
 router.get("/:id", CategoryController.show);
-router.put("/:id", CategoryController.update);
-router.delete("/:id", CategoryController.delete);
+router.post("/", loginMiddleware, CategoryController.create);
+router.put("/:id", loginMiddleware, CategoryController.update);
+router.delete("/:id", loginMiddleware, CategoryController.delete);
 
 export default router;
