@@ -28,7 +28,7 @@ export const ProjectController = {
             if (!project) {
                 return res.status(404).json({ message: "Project not found" })
             }
-            successResponse(res, project, "Project deleted successfully")
+            successResponse(res, null, "Project deleted successfully")
         } catch (error) {
             next(error)
         }
@@ -47,7 +47,7 @@ export const ProjectController = {
     getAll: async (req: Request, res: Response, next: NextFunction) => {
         try {
             const projects = await Project.find().populate("experience", "name").populate("skills", "name")
-            successResponse(res, null, "Projects retrieved successfully")
+            successResponse(res, projects, "Projects retrieved successfully")
         } catch (error) {
             next(error)
         }

@@ -7,6 +7,7 @@ export interface IProject extends Document {
     skills: mongoose.Types.ObjectId[];
     link?: string;
     images?: string[];
+    color: string
 }
 
 const ProjectSchema = new Schema<IProject>({
@@ -21,7 +22,7 @@ const ProjectSchema = new Schema<IProject>({
     experience: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Experience",
-        required: true
+        default: null
     },
     skills: {
         type: [mongoose.Schema.Types.ObjectId],
@@ -35,6 +36,10 @@ const ProjectSchema = new Schema<IProject>({
     images: {
         type: [String],
         default: null
+    },
+    color: {
+        type: String,
+        default: '#00FFB2'
     }
 });
 
