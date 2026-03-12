@@ -7,7 +7,9 @@ import { errorMiddleware } from "./middleware/error.middleware";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://elturanportfolio.netlify.app'
+}));
 app.use(express.json());
 
 app.use("/api", routes);
